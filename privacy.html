@@ -5,99 +5,450 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - Smart TV Cast</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(125deg, #0f172a 0%, #1e293b 50%, #047857 100%);
+            min-height: 100vh;
+            color: #f8fafc;
+            line-height: 1.7;
         }
-        h1 {
-            color: #2c3e50;
+        
+        .page-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: 300px;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid rgba(6, 182, 212, 0.2);
+            padding: 30px 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        
+        .logo-section {
             text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 2px solid rgba(16, 185, 129, 0.3);
         }
-        h2 {
-            color: #2980b9;
+        
+        .logo-section h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #10b981, #06d6a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .logo-section p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        .nav-menu {
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-bottom: 12px;
+        }
+        
+        .nav-link {
+            display: block;
+            padding: 12px 18px;
+            color: #cbd5e1;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 1px solid transparent;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            border-color: rgba(16, 185, 129, 0.3);
+            transform: translateX(5px);
+        }
+        
+        .main-content {
+            flex: 1;
+            margin-left: 300px;
+            padding: 40px;
+        }
+        
+        .content-header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .content-header h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff, #10b981);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .content-header .subtitle {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            margin-bottom: 15px;
+        }
+        
+        .last-updated {
+            display: inline-block;
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .content-section {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(16, 185, 129, 0.15);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 25px;
+        }
+        
+        .content-section h2 {
+            color: #10b981;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-icon {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+        
+        .content-section p {
+            color: #e2e8f0;
+            font-size: 1.05rem;
+            margin-bottom: 18px;
+        }
+        
+        .content-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .content-section li {
+            color: #e2e8f0;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .content-section li:before {
+            content: "✦";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .content-section strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #059669, #047857);
+            border-radius: 20px;
+            padding: 35px;
+            text-align: center;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .contact-section h2 {
+            color: white;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
             margin-top: 25px;
         }
-        .container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        .contact-info {
-            background-color: #f0f8ff;
-            padding: 15px;
-            border-left: 4px solid #3498db;
-            margin: 20px 0;
+        
+        .contact-item h4 {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
         }
-        .last-updated {
-            text-align: right;
-            font-style: italic;
-            color: #7f8c8d;
-            margin-top: 30px;
+        
+        .contact-item p {
+            color: #d1fae5;
+            margin: 5px 0;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            border-bottom-color: white;
+            color: #d1fae5;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .page-wrapper {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 20px;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+            }
+            
+            .content-header {
+                padding: 25px;
+            }
+            
+            .content-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .nav-menu {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .nav-item {
+                margin-bottom: 0;
+            }
+            
+            .nav-link {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .content-header {
+                padding: 20px;
+            }
+            
+            .content-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .content-section {
+                padding: 25px;
+            }
+            
+            .contact-section {
+                padding: 25px;
+            }
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.5);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Privacy Policy for Smart TV Cast</h1>
+    <div class="page-wrapper">
+        <aside class="sidebar">
+            <div class="logo-section">
+                <h1>Smart TV Cast</h1>
+                <p>Privacy Documentation</p>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#overview" class="nav-link active">📋 Overview</a></li>
+                    <li class="nav-item"><a href="#collection" class="nav-link">📊 Data Collection</a></li>
+                    <li class="nav-item"><a href="#usage" class="nav-link">🎯 How We Use Data</a></li>
+                    <li class="nav-item"><a href="#sharing" class="nav-link">🤝 Data Sharing</a></li>
+                    <li class="nav-item"><a href="#security" class="nav-link">🔒 Security</a></li>
+                    <li class="nav-item"><a href="#children" class="nav-link">👶 Children's Privacy</a></li>
+                    <li class="nav-item"><a href="#changes" class="nav-link">📝 Policy Changes</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">📞 Contact Us</a></li>
+                </ul>
+            </nav>
+        </aside>
         
-        <p>Last Updated: <span id="current-date"></span></p>
-        
-        <p>Smart Mobile Casting Co., Ltd ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Smart TV Cast application (the "App").</p>
-        
-        <h2>1. Information We Collect</h2>
-        <p>We may collect certain information when you use our App, including:</p>
-        <ul>
-            <li><strong>Device Information:</strong> We may collect information about the device you use to access our App, including device model, operating system, and unique device identifiers.</li>
-            <li><strong>Usage Data:</strong> We collect data about how you interact with our App, including casting preferences and frequently accessed content.</li>
-            <li><strong>Network Information:</strong> To establish connections between devices, we may collect information about your local network configuration.</li>
-        </ul>
-        
-        <h2>2. How We Use Your Information</h2>
-        <p>We use the collected information to:</p>
-        <ul>
-            <li>Provide, maintain, and improve our App's functionality</li>
-            <li>Develop new features and services</li>
-            <li>Analyze usage patterns to enhance user experience</li>
-            <li>Troubleshoot technical issues</li>
-            <li>Communicate with you about updates or important notices</li>
-        </ul>
-        
-        <h2>3. Data Sharing and Disclosure</h2>
-        <p>We do not sell or rent your personal information to third parties. We may share information in the following limited circumstances:</p>
-        <ul>
-            <li>With service providers who assist in operating our App (under strict confidentiality agreements)</li>
-            <li>When required by law or to respond to legal process</li>
-            <li>To protect the rights or property of our company or users</li>
-        </ul>
-        
-        <h2>4. Data Security</h2>
-        <p>We implement appropriate technical and organizational measures to protect your information. However, no method of transmission over the Internet or electronic storage is 100% secure.</p>
-        
-        <h2>5. Children's Privacy</h2>
-        <p>Our App is not directed to children under 13. We do not knowingly collect personal information from children under 13.</p>
-        
-        <h2>6. Changes to This Privacy Policy</h2>
-        <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
-        
-        <h2>7. Contact Us</h2>
-        <div class="contact-info">
-            <p>If you have any questions about this Privacy Policy, please contact us:</p>
-            <p><strong>Company Name:</strong> Smart Mobile Casting Co., Ltd</p>
-            <p><strong>Email:</strong> <a href="mailto:mobilesecure.feedback@gmail.com">mobilesecure.feedback@gmail.com</a></p>
-        </div>
-        
-        <div class="last-updated">
-            <p>Thank you for using Smart TV Cast.</p>
-        </div>
+        <main class="main-content">
+            <header class="content-header" id="overview">
+                <h1>Privacy Policy</h1>
+                <p class="subtitle">Your privacy matters to us</p>
+                <div class="last-updated">Last Updated: <span id="current-date"></span></div>
+            </header>
+            
+            <div class="content-section" id="collection">
+                <h2><span class="section-icon">📊</span>Information We Collect</h2>
+                <p>We are committed to transparency about the data we collect and how we use it to provide you with the best Smart TV Cast experience.</p>
+                <ul>
+                    <li><strong>Device Information:</strong> Device model, operating system version, unique device identifiers, and hardware specifications to ensure compatibility.</li>
+                    <li><strong>Usage Analytics:</strong> How you interact with our app, casting preferences, connection patterns, and feature usage to improve performance.</li>
+                    <li><strong>Network Data:</strong> Local network configuration details necessary for device discovery and connection establishment.</li>
+                    <li><strong>Performance Metrics:</strong> App performance data, error logs, and crash reports to enhance stability and user experience.</li>
+                </ul>
+            </div>
+            
+            <div class="content-section" id="usage">
+                <h2><span class="section-icon">🎯</span>How We Use Your Information</h2>
+                <p>Your information helps us deliver, maintain, and continuously improve our services:</p>
+                <ul>
+                    <li>Provide seamless casting functionality across your devices</li>
+                    <li>Optimize app performance and fix technical issues</li>
+                    <li>Develop new features based on user needs and preferences</li>
+                    <li>Analyze usage patterns to enhance overall user experience</li>
+                    <li>Send important updates and security notifications</li>
+                    <li>Ensure compatibility with new devices and platforms</li>
+                </ul>
+            </div>
+            
+            <div class="content-section" id="sharing">
+                <h2><span class="section-icon">🤝</span>Data Sharing & Disclosure</h2>
+                <p>We respect your privacy and maintain strict policies regarding data sharing:</p>
+                <ul>
+                    <li><strong>No Sale of Personal Data:</strong> We never sell or rent your personal information to third parties</li>
+                    <li><strong>Service Providers:</strong> Trusted partners who help us operate the app under strict confidentiality agreements</li>
+                    <li><strong>Legal Requirements:</strong> When required by law, court order, or to respond to legal process</li>
+                    <li><strong>Safety & Security:</strong> To protect the rights, property, or safety of our users and company</li>
+                </ul>
+            </div>
+            
+            <div class="content-section" id="security">
+                <h2><span class="section-icon">🔒</span>Data Security</h2>
+                <p>We implement comprehensive security measures to protect your information:</p>
+                <ul>
+                    <li>Industry-standard encryption for data transmission and storage</li>
+                    <li>Regular security audits and vulnerability assessments</li>
+                    <li>Access controls and authentication mechanisms for our systems</li>
+                    <li>Continuous monitoring for suspicious activities and threats</li>
+                </ul>
+                <p><strong>Important Note:</strong> While we implement robust security measures, no method of transmission over the Internet or electronic storage is 100% secure.</p>
+            </div>
+            
+            <div class="content-section" id="children">
+                <h2><span class="section-icon">👶</span>Children's Privacy</h2>
+                <p>Protecting children's privacy is extremely important to us:</p>
+                <ul>
+                    <li>Our app is not directed to children under the age of 13</li>
+                    <li>We do not knowingly collect personal information from children under 13</li>
+                    <li>If we become aware of such collection, we will delete the information immediately</li>
+                    <li>Parents concerned about their child's data should contact us immediately</li>
+                </ul>
+            </div>
+            
+            <div class="content-section" id="changes">
+                <h2><span class="section-icon">📝</span>Changes to This Privacy Policy</h2>
+                <p>We may update this Privacy Policy periodically to reflect changes in our practices or legal requirements:</p>
+                <ul>
+                    <li>Users will be notified of significant changes via the app or email</li>
+                    <li>The "Last Updated" date at the top will reflect when changes were made</li>
+                    <li>Continued use of the app after changes constitutes acceptance of the new policy</li>
+                    <li>We encourage users to review this policy regularly</li>
+                </ul>
+            </div>
+            
+            <div class="contact-section" id="contact">
+                <h2>📞 Need to Contact Us?</h2>
+                <p style="color: #d1fae5; font-size: 1.1rem; margin-bottom: 25px;">
+                    If you have any questions or concerns about this Privacy Policy, we're here to help!
+                </p>
+                
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <h4>📧 Email Support</h4>
+                        <p>For privacy-related inquiries:</p>
+                        <a href="mailto:mobilesecure.feedback@gmail.com">mobilesecure.feedback@gmail.com</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <h4>🏢 Company Information</h4>
+                        <p><strong>Name:</strong> Smart Mobile Casting Co., Ltd</p>
+                        <p><strong>Type:</strong> Mobile Technology Solutions</p>
+                    </div>
+                </div>
+                
+                <p style="color: #d1fae5; margin-top: 25px; font-style: italic;">
+                    Thank you for trusting Smart TV Cast with your privacy.
+                </p>
+            </div>
+        </main>
     </div>
 
     <script>
@@ -106,6 +457,47 @@
             year: 'numeric', 
             month: 'long', 
             day: 'numeric'
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Update active link
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Update active navigation on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.content-section, .content-header, .contact-section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop <= 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
