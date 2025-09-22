@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Roku Remote & Cast</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #4A1E5A 0%, #662D91 25%, #7A3FA0 50%, #8B45A5 100%);
+            min-height: 100vh;
+            color: #f5f5f5;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, #662D91, #7A3FA0, #B374BC);
+            overflow: hidden;
+        }
+        
+        .hero-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(102, 45, 145, 0.8), rgba(122, 63, 160, 0.8));
+            z-index: 1;
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            color: white;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
+        }
+        
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 2rem;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+        
+        .main-content {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .content-nav {
+            position: sticky;
+            top: 20px;
+            background: rgba(102, 45, 145, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(179, 116, 188, 0.3);
+            z-index: 100;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .nav-item {
+            background: linear-gradient(135deg, #B374BC, #8B45A5);
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .nav-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(179, 116, 188, 0.4);
+        }
+        
+        .section-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(179, 116, 188, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.8s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-card.animate {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .section-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(179, 116, 188, 0.1), transparent);
+            transition: left 0.8s;
+        }
+        
+        .section-card:hover:before {
+            left: 100%;
+        }
+        
+        .section-card h2 {
+            color: #B374BC;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #B374BC, #8B45A5);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(179, 116, 188, 0.3);
+        }
+        
+        .section-card p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #e5e5e5;
+        }
+        
+        .section-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .section-card li {
+            background: rgba(179, 116, 188, 0.1);
+            margin-bottom: 12px;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border-left: 4px solid #B374BC;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .section-card li:hover {
+            background: rgba(179, 116, 188, 0.2);
+            transform: translateX(10px);
+        }
+        
+        .section-card strong {
+            color: #B374BC;
+            font-weight: 700;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #8B45A5, #B374BC);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(139, 69, 165, 0.3);
+        }
+        
+        .highlight-box h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .footer-section {
+            background: linear-gradient(135deg, #4A1E5A, #662D91);
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 3px solid #B374BC;
+        }
+        
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, rgba(179, 116, 188, 0.1), rgba(139, 69, 165, 0.1));
+            border: 1px solid rgba(179, 116, 188, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(179, 116, 188, 0.2);
+            border-color: rgba(179, 116, 188, 0.6);
+        }
+        
+        .contact-card h3 {
+            color: #B374BC;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .contact-card p {
+            color: #d0d0d0;
+            margin-bottom: 10px;
+        }
+        
+        .contact-card a {
+            color: #B374BC;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(179, 116, 188, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card a:hover {
+            color: #ffffff;
+            border-bottom-color: #ffffff;
+        }
+        
+        .last-updated {
+            background: rgba(255, 255, 255, 0.15);
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 25px;
+            color: #ffffff;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .main-content {
+                padding: 40px 15px;
+            }
+            
+            .section-card {
+                padding: 25px;
+            }
+            
+            .section-card h2 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 10px;
+            }
+            
+            .nav-item {
+                padding: 10px 15px;
+                font-size: 0.8rem;
+            }
+            
+            .contact-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .section-card {
+                padding: 20px;
+            }
+            
+            .section-card h2 {
+                font-size: 1.5rem;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .footer-section {
+                padding: 30px 15px;
+            }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #4A1E5A;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #B374BC, #8B45A5);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #8B45A5, #B374BC);
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Terms of Service</h1>
+            <p class="subtitle">Roku Remote & Cast Usage Agreement</p>
+            <div class="last-updated">Effective Date: <span id="current-date"></span></div>
+        </div>
+        <div class="scroll-indicator">⬇️</div>
+    </section>
+    
+    <div class="main-content">
+        <nav class="content-nav">
+            <div class="nav-grid">
+                <a href="#license" class="nav-item">📜 License Rights</a>
+                <a href="#restrictions" class="nav-item">🚫 Usage Restrictions</a>
+                <a href="#content" class="nav-item">🎬 Content Responsibility</a>
+                <a href="#compatibility" class="nav-item">📱 Device Compatibility</a>
+                <a href="#updates" class="nav-item">🔄 Updates & Changes</a>
+                <a href="#warranties" class="nav-item">⚠️ Disclaimers</a>
+                <a href="#liability" class="nav-item">🛡️ Liability Limits</a>
+                <a href="#termination" class="nav-item">🔚 Account Termination</a>
+            </div>
+        </nav>
+        
+        <div class="section-card" id="license">
+            <h2><span class="section-icon">📜</span>License Grant</h2>
+            <p>CastlyM grants you a personal, limited, non-exclusive, and non-transferable license to use the Roku Remote & Cast application subject to these terms.</p>
+            <div class="highlight-box">
+                <h3>🎯 What You Can Do</h3>
+                <p>Use Roku Remote & Cast for personal entertainment, control your Roku TV, and cast content to Roku devices for seamless streaming experiences.</p>
+            </div>
+        </div>
+        
+        <div class="section-card" id="restrictions">
+            <h2><span class="section-icon">🚫</span>Usage Restrictions</h2>
+            <p>To maintain service quality and security, certain activities are prohibited:</p>
+            <ul>
+                <li><strong>Reverse Engineering:</strong> No decompiling, disassembling, or attempting to extract source code</li>
+                <li><strong>Commercial Use:</strong> The app is for personal use only - no commercial exploitation allowed</li>
+                <li><strong>Network Interference:</strong> Avoid disrupting the app's functionality or other users' experiences</li>
+                <li><strong>Security Bypass:</strong> Do not circumvent or attempt to disable security measures</li>
+                <li><strong>Malicious Activity:</strong> Prohibit transmission of viruses, malware, or harmful content</li>
+                <li><strong>Unauthorized Access:</strong> No hacking, data mining, or unauthorized system access</li>
+            </ul>
+        </div>
+        
+        <div class="section-card" id="content">
+            <h2><span class="section-icon">🎬</span>Content Responsibility</h2>
+            <p>Users bear full responsibility for the content they choose to cast and stream:</p>
+            <ul>
+                <li><strong>Copyright Compliance:</strong> Ensure you have proper rights to all content you cast</li>
+                <li><strong>Legal Content Only:</strong> No transmission of illegal, copyrighted, or inappropriate material</li>
+                <li><strong>Content Ownership:</strong> Verify ownership or licensing rights before casting</li>
+                <li><strong>Privacy Respect:</strong> Do not cast content that violates others' privacy</li>
+                <li><strong>Regional Laws:</strong> Comply with all applicable local and international laws</li>
+            </ul>
+        </div>
+        
+        <div class="section-card" id="compatibility">
+            <h2><span class="section-icon">📱</span>Device Compatibility</h2>
+            <p>Smart TV Cast performance depends on various factors beyond our control:</p>
+            <ul>
+                <li><strong>Device Variations:</strong> We cannot guarantee compatibility with all devices</li>
+                <li><strong>Network Requirements:</strong> Stable internet connection required for optimal performance</li>
+                <li><strong>Hardware Limitations:</strong> Some features may not work on older devices</li>
+                <li><strong>System Updates:</strong> Regular device updates may affect app functionality</li>
+            </ul>
+            <div class="highlight-box">
+                <h3>⚡ Performance Note</h3>
+                <p>Streaming quality and casting success rates depend on your network speed, device capabilities, and target display specifications.</p>
+            </div>
+        </div>
+        
+        <div class="section-card" id="updates">
+            <h2><span class="section-icon">🔄</span>Updates & Service Changes</h2>
+            <p>We continuously improve Smart TV Cast and reserve the right to make changes:</p>
+            <ul>
+                <li><strong>Automatic Updates:</strong> The app may update automatically to ensure security and functionality</li>
+                <li><strong>Feature Modifications:</strong> We may add, modify, or remove features at any time</li>
+                <li><strong>Terms Updates:</strong> These terms may change with advance notice to users</li>
+                <li><strong>Service Evolution:</strong> Our services may evolve based on user needs and technology</li>
+            </ul>
+        </div>
+        
+        <div class="section-card" id="warranties">
+            <h2><span class="section-icon">⚠️</span>Service Disclaimers</h2>
+            <p>Smart TV Cast is provided "AS IS" without warranties of any kind. We do not guarantee:</p>
+            <ul>
+                <li><strong>Perfect Performance:</strong> The app may experience occasional downtime or errors</li>
+                <li><strong>Universal Compatibility:</strong> Not all devices may be fully supported</li>
+                <li><strong>Uninterrupted Service:</strong> Technical issues may temporarily affect functionality</li>
+                <li><strong>Complete Accuracy:</strong> Information and results may not always be 100% accurate</li>
+            </ul>
+        </div>
+        
+        <div class="section-card" id="liability">
+            <h2><span class="section-icon">🛡️</span>Limitation of Liability</h2>
+            <p>To the maximum extent permitted by law, CastlyM shall not be liable for:</p>
+            <ul>
+                <li><strong>Indirect Damages:</strong> No liability for consequential or incidental damages</li>
+                <li><strong>Service Interruption:</strong> Temporary unavailability or access issues</li>
+                <li><strong>Data Loss:</strong> Any loss of data or content during transmission</li>
+                <li><strong>Third-Party Issues:</strong> Problems caused by external services or devices</li>
+                <li><strong>User Content:</strong> Any issues arising from content you choose to cast</li>
+            </ul>
+            <div class="highlight-box">
+                <h3>🔍 Important Notice</h3>
+                <p>Some jurisdictions do not allow limitation of liability, so some restrictions may not apply to you.</p>
+            </div>
+        </div>
+        
+        <div class="section-card" id="termination">
+            <h2><span class="section-icon">🔚</span>Service Termination</h2>
+            <p>These terms remain in effect until terminated by either party:</p>
+            <ul>
+                <li><strong>User Termination:</strong> You may stop using the app and delete it at any time</li>
+                <li><strong>Company Termination:</strong> We may suspend access for terms violations</li>
+                <li><strong>Automatic Termination:</strong> Terms end automatically if you violate any provisions</li>
+                <li><strong>Effect of Termination:</strong> All rights granted under these terms cease immediately</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer class="footer-section">
+        <div class="contact-cards">
+            <div class="contact-card">
+                <h3>📧 Legal Inquiries</h3>
+                <p>Questions about these terms?</p>
+                <p>Contact: <a href="mailto:castlym.support@gmail.com">castlym.support@gmail.com</a></p>
+            </div>
+            
+            <div class="contact-card">
+                <h3>🏢 Company Details</h3>
+                <p><strong>Name:</strong> CastlyM</p>
+                <p><strong>Business:</strong> Mobile Streaming Solutions</p>
+                <p><strong>Focus:</strong> Roku TV Remote & Casting</p>
+            </div>
+        </div>
+        
+        <p style="color: #b0b0b0; font-style: italic; margin-top: 30px;">
+            By using Roku Remote & Cast, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.
+        </p>
+    </footer>
+
+    <script>
+        // Auto-update the current date
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric'
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-item').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
+            });
+        });
+        
+        // Animate sections on scroll
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all section cards
+        document.querySelectorAll('.section-card').forEach(card => {
+            observer.observe(card);
+        });
+        
+        // Scroll indicator hide on scroll
+        window.addEventListener('scroll', function() {
+            const scrollIndicator = document.querySelector('.scroll-indicator');
+            if (window.scrollY > 200) {
+                scrollIndicator.style.opacity = '0';
+            } else {
+                scrollIndicator.style.opacity = '1';
+            }
+        });
+    </script>
+</body>
+</html>
